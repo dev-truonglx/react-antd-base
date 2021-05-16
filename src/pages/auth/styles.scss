@@ -1,0 +1,12 @@
+.login{
+    display: flex;
+    height: 100vh;
+
+    &-form {
+        border: 1px solid #ddd;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        width: 100%;
+    }
+}

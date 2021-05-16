@@ -1,0 +1,10 @@
+.loading {
+    &-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        justify-items: center;
+        background: #ddd;
+        height: 100vh;
+    }
+}

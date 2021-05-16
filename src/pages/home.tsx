@@ -1,9 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
-Home.propTypes = {};
 
 function Home() {
+  // const user = useSelector((state: any) => state.collapsed.isCollapsed);
+
   return <div>Home</div>;
 }
 
