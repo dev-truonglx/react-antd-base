@@ -9,8 +9,8 @@ import { RootState } from 'src/store';
 import BreadcrumbMenu from './Breadcrumb';
 import HeaderTop from './Header';
 import MenuLink from './MenuLink';
-const { Header, Content, Sider } = Layout;
 
+const { Header, Content, Sider } = Layout;
 type Props = {
   children: React.ReactNode;
 };
@@ -19,7 +19,6 @@ const MainLayout: FC<Props> = (props) => {
   const collapsed = useSelector((state: RootState) => state.collapsed.isCollapsed);
   const user = useSelector((state: RootState) => state.user.user);
   const loading = useSelector((state: RootState) => state.user.loading);
-  // const isLoading = useSelector((state: RootState) => state.loading.isLoading);
   const dispatch = useDispatch();
 
   const handleCollapse = () => {
@@ -46,7 +45,6 @@ const MainLayout: FC<Props> = (props) => {
           <div className="breadcrumbMenu">
             <BreadcrumbMenu />
           </div>
-
           <div className="site-layout-background site-layout-content">{props.children}</div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>©2021 Created by TruongLX</Footer>

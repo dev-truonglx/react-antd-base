@@ -1,6 +1,7 @@
 import { Avatar, Card, Col, Row } from 'antd';
 import React, { memo, useEffect, useState } from 'react';
 import authService from 'src/api/authApi';
+import LoadingSkeleton from 'src/components/common/LoadingSkeleton';
 const { Meta } = Card;
 
 function Profile() {
@@ -24,6 +25,7 @@ function Profile() {
     };
   }, []);
 
+  if (loading) return <LoadingSkeleton />;
   return (
     <Row>
       <Col span={24}>

@@ -10,7 +10,7 @@ interface AuthenticateState {
 const initialState: AuthenticateState = {
   token: localStorage.getItem('accessToken') || '',
   loading: false,
-  user: undefined,
+  user: JSON.parse(localStorage.getItem('user') || '') || undefined,
   error: null,
 };
 
