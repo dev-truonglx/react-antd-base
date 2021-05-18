@@ -5,7 +5,7 @@ export class AuthService {
     return await Api.get('me');
   }
 
-  async login(user) {
+  async login(user: any) {
     return await Api.post('login', user);
   }
 
@@ -17,3 +17,8 @@ export class AuthService {
 const authService = new AuthService();
 
 export default authService;
+
+export const me = async () => {
+  const response = await Api.get('me');
+  return response;
+};

@@ -19,8 +19,16 @@
     },
     "plugins": [
         "react",
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "prettier"
     ],
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "paths": ["src"]
+        }
+      }
+    },
     "rules": {
       "require-yield": "warn",
       "react/jsx-key": "error",
@@ -58,7 +66,6 @@
           "project": "./tsconfig.json"
         },
         "plugins": ["@typescript-eslint"],
-        // "extends": ["prettier/@typescript-eslint"],
         "rules": {
           "react/prop-types": "off",
           "@typescript-eslint/explicit-module-boundary-types": "off",

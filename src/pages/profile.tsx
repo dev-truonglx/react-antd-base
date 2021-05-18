@@ -1,6 +1,6 @@
 import { Avatar, Card, Col, Row } from 'antd';
 import React, { memo, useEffect, useState } from 'react';
-import authService from 'src/api/authApi';
+import { me } from 'src/api/authApi';
 import LoadingSkeleton from 'src/components/common/LoadingSkeleton';
 const { Meta } = Card;
 
@@ -10,8 +10,7 @@ function Profile() {
 
   useEffect(() => {
     setLoading(true);
-    authService
-      .meTemp()
+    me()
       .then((response) => {
         setUser(response.data);
         setLoading(false);
@@ -20,9 +19,6 @@ function Profile() {
         console.log(error);
         setLoading(false);
       });
-    return () => {
-      setLoading(false);
-    };
   }, []);
 
   if (loading) return <LoadingSkeleton />;

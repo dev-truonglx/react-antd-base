@@ -1,4 +1,4 @@
-import { BackTop, Layout } from 'antd';
+import { BackTop, Col, Layout, Row } from 'antd';
 import { Footer } from 'antd/lib/layout/layout';
 import React, { FC, memo, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -43,7 +43,11 @@ const MainLayout: FC<Props> = (props) => {
         </Header>
         <Content style={{ margin: '0 16px' }}>
           <div className="breadcrumbMenu">
-            <BreadcrumbMenu />
+            <Row>
+              <Col xs={0} sm={24} span={24}>
+                <BreadcrumbMenu />
+              </Col>
+            </Row>
           </div>
           <div className="site-layout-background site-layout-content">{props.children}</div>
         </Content>
