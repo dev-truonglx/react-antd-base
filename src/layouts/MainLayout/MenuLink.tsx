@@ -1,7 +1,7 @@
 import { Menu } from 'antd';
 import React, { memo } from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
-import { menus } from './menus';
+import { menus } from '../../routes/menus';
 import './styles.scss';
 
 const { SubMenu } = Menu;
@@ -34,13 +34,14 @@ const MenuLink: React.FC<Props> = memo(function MenuLink({ location }) {
           return (
             <SubMenu key={sub.key} className="dashboard-menu_sub" title={<span>{sub.name}</span>} icon={sub.icon}>
               {sub.children.map((item: any) => {
-                return (
-                  <Menu.Item key={item.key}>
-                    <NavLink to={item.path} className="dashboard-menu-link">
-                      <span>{item.name}</span>
-                    </NavLink>
-                  </Menu.Item>
-                );
+                if (!item.hidden)
+                  return (
+                    <Menu.Item key={item.key}>
+                      <NavLink to={item.path} className="dashboard-menu-link">
+                        <span>{item.name}</span>
+                      </NavLink>
+                    </Menu.Item>
+                  );
               })}
             </SubMenu>
           );

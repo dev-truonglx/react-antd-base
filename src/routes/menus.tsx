@@ -11,6 +11,7 @@ export const menus = [
     icon: <PieChartOutlined />,
     children: [],
     breadcrumbName: 'Dashboard',
+    hidden: false,
   },
   {
     key: PATH.USER_MANAGEMENT,
@@ -19,6 +20,7 @@ export const menus = [
     icon: <DesktopOutlined />,
     path: PATH.USER_MANAGEMENT,
     breadcrumbName: 'Users name',
+    hidden: false,
     children: [
       {
         key: PATH.PROFILE,
@@ -26,6 +28,7 @@ export const menus = [
         hasChild: false,
         path: PATH.PROFILE,
         breadcrumbName: 'Profile name',
+        hidden: false,
       },
       {
         key: PATH.ABOUT,
@@ -33,16 +36,35 @@ export const menus = [
         hasChild: false,
         path: PATH.ABOUT,
         breadcrumbName: 'About name',
+        hidden: false,
       },
     ],
   },
   {
-    key: PATH.PAGE_404,
-    name: '404',
-    hasChild: false,
-    path: PATH.PAGE_404,
+    key: PATH.SCHEDULE_MANAGEMENT,
+    name: 'Schedules',
+    hasChild: true,
+    path: PATH.SCHEDULE_MANAGEMENT,
     icon: <PieChartOutlined />,
-    children: [],
-    breadcrumbName: '404',
+    breadcrumbName: 'Schedule management',
+    hidden: false,
+    children: [
+      {
+        key: PATH.SCHEDULE_LIST,
+        name: 'Schedule list',
+        hasChild: false,
+        path: PATH.SCHEDULE_LIST,
+        breadcrumbName: 'Schedule list',
+        hidden: false,
+      },
+      {
+        key: PATH.SCHEDULE_DETAIL,
+        name: 'Schedule Detail',
+        hasChild: false,
+        path: PATH.SCHEDULE_DETAIL.replace('/:id', '').replace('/:abc', ''),
+        breadcrumbName: 'Schedule Detail',
+        hidden: true,
+      },
+    ],
   },
 ];
