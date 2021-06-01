@@ -5,7 +5,7 @@ type Props = {
 };
 
 const GuestLayout: FC<Props> = (props) => {
-  return <div style={{ height: '100vh' }}>{props.children}</div>;
+  return <div style={{ height: '100vh', width: '100VW' }}>{props.children}</div>;
 };
 
 export default GuestLayout;

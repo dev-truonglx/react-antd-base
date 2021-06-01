@@ -1,6 +1,6 @@
 import { EyeOutlined, SearchOutlined } from '@ant-design/icons';
 import { Button, Col, Form, Input, Row, Space, Table, TablePaginationConfig } from 'antd';
-import React, { useEffect, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { getSchedule } from 'src/api/scheduleApi';
 import { useQuery } from 'src/hooks/useQueryParam';
@@ -85,13 +85,15 @@ const ListSchedule = () => {
     });
   };
   const onFinish = (values: any) => {
-    history.replace({
-      pathname: history.location.pathname,
-      search: QueryString.stringify<UserViewUrlParams>({
-        lessonCode: values.lesson_code || undefined,
-        lessonName: values.lesson_name || undefined,
-      }),
-    });
+    // nghiên cứu đánh đổi re render sider khi route thay đổi.
+    fetchData();
+    // history.replace({
+    //   pathname: history.location.pathname,
+    //   search: QueryString.stringify<UserViewUrlParams>({
+    //     lessonCode: values.lesson_code || undefined,
+    //     lessonName: values.lesson_name || undefined,
+    //   }),
+    // });
   };
 
   return (
@@ -149,4 +151,4 @@ const ListSchedule = () => {
   );
 };
 
-export default ListSchedule;
+export default memo(ListSchedule);

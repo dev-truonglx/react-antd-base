@@ -40,7 +40,7 @@ function Login() {
   };
   return (
     <Row justify="center" align="middle" className="login">
-      <Col span={8}>
+      <Col xxl={8} xl={10} md={16} sm={20} xs={22} span={8}>
         <div className="login-form">
           <Form
             {...layout}
