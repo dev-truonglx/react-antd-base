@@ -11,7 +11,7 @@ interface TypeParams {
 function Detail() {
   const { id, abc } = useParams<TypeParams>();
   const [loading, setLoading] = useState<boolean>(false);
-  const [data, setData] = useState<any>([]);
+  const [data, setData] = useState<any>({});
 
   const fetchData = () => {
     getDetailSchedule(id, abc)
@@ -31,8 +31,7 @@ function Detail() {
     fetchData();
   }, [id, abc]);
 
-  console.log(data);
-  if (loading) return <LoadingSkeleton />;
+  if (loading || !Object.keys(data).length) return <LoadingSkeleton />;
 
   return (
     <Row>

@@ -29,7 +29,7 @@ const MainLayout: FC<Props> = (props) => {
     if (!user) dispatch(getMe());
   }, [user]);
 
-  if (loading) return <Loading />;
+  if (loading || !user) return <Loading />;
 
   return (
     <Layout style={{ minHeight: '100vh' }}>

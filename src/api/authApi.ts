@@ -1,4 +1,4 @@
-import Api from './index';
+import Api from './config';
 
 export class AuthService {
   async me() {

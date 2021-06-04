@@ -10,7 +10,7 @@ interface AuthenticateState {
 const initialState: AuthenticateState = {
   token: localStorage.getItem('accessToken') || '',
   loading: false,
-  user: JSON.parse(localStorage.getItem('user') || '') || undefined,
+  user: undefined,
   error: null,
 };
 
@@ -42,6 +42,9 @@ export const authenticateSlice = createSlice({
       state.user = undefined;
       localStorage.removeItem('user');
       localStorage.removeItem('accessToken');
+    },
+    setLoading: (state) => {
+      state.loading = true;
     },
   },
   extraReducers: (builder) => {
@@ -84,5 +87,5 @@ export const authenticateSlice = createSlice({
 });
 
 const { actions, reducer } = authenticateSlice;
-export const { setToken, removeToken, setUser, logOut } = actions;
+export const { setToken, removeToken, setUser, logOut, setLoading } = actions;
 export default reducer;

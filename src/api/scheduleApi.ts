@@ -1,4 +1,4 @@
-import Api from './index';
+import Api from './config';
 export const getSchedule = async (params: any) => {
   const response = await Api.get('lessons-schedule', { params });
   return response.data;
